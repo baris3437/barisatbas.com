@@ -1,0 +1,2 @@
+# barisatbas.com
+kişisel sayfam
