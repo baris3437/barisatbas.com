@@ -1,0 +1,34 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# ---------------------------------------
+# BEGIN Domain to folder mapping
+
+# pointing barisatbas.com to home
+ReWriteCond %{HTTP_HOST} barisatbas.com
+ReWriteCond %{REQUEST_URI} !home/
+ReWriteRule ^(.*)$ home/$1 [L]
+
+# pointing canustaninyeri.com to canusta
+ReWriteCond %{HTTP_HOST} canustaninyeri.com
+ReWriteCond %{REQUEST_URI} !canusta/
+ReWriteRule ^(.*)$ canusta/$1 [L]
+
+# END Domain to folder mapping
+# ---------------------------------------
+
+# ---------------------------------------
+# BEGIN htaccess pretection
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+# END htaccess pretection
+# ---------------------------------------
+
+</IfModule>
+RewriteEngine on
+
