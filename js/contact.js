@@ -39,7 +39,7 @@ $(function() {
       $('#email').val('');
       $('#subject').val('');
       $('#message').val('');
-      $('#success').show();
+      $('#contact-success').show();
       $('#contact-form input[type="submit"]').val('Gönder');
     };
 

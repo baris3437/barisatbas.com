@@ -8,10 +8,17 @@ $message = $data["message"];
 $email = $data["email"];
 $subject = $data["subject"];
 
+if(empty($from) || empty($name) || empty($message) || empty($email) || empty($subject)){
+   header('HTTP/1.1 500 Internal Server Error');
+}
+
+
 $to      = 'barisatbas@gmail.com';
 $subject = 'barisatbas.com - ' . $subject;
 $headers = 'From: '. $from . "\r\n" .
     'Reply-To: barisatbas@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-mail($to, $subject, $message, $headers);
+if(!mail($to, $subject, $message, $headers)){
+    header('HTTP/1.1 500 Internal Server Error');
+}
